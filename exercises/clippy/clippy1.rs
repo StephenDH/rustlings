@@ -6,12 +6,16 @@
 // check clippy's suggestions from the output to solve the exercise.
 // Execute `rustlings hint clippy1` for hints :)
 
-// I AM NOT DONE
-
 fn main() {
     let x = 1.2331f64;
     let y = 1.2332f64;
-    if y != x {
+
+    // clippy suggested using the epsilon constant as error margin.
+    // TODO: learn what an epsilon is
+    let error_margin = f64::EPSILON;
+
+    // float arithmetics are imprecise -> use a error margin to check if floats are near equal or unequal
+    if (y - x).abs() > error_margin {
         println!("Success!");
     }
 }
